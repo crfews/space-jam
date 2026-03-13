@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://crkqi0ugl3rf6"]
+
+[ext_resource type="Script" uid="uid://vo6xavj823b8" path="res://testing/astroidmanager.gd" id="1_p2kcu"]
+[ext_resource type="PackedScene" uid="uid://bjqj3a7xlmdm2" path="res://testing/Astroid_test1.tscn" id="2_tnyjc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p2kcu"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_tnyjc"]
+sky_material = SubResource("ProceduralSkyMaterial_p2kcu")
+
+[sub_resource type="Environment" id="Environment_gfiaf"]
+background_mode = 2
+sky = SubResource("Sky_tnyjc")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_p2kcu"]
+
+[node name="Game" type="Node3D" unique_id=823825901]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=145418255]
+environment = SubResource("Environment_gfiaf")
+
+[node name="Astroidmanager" type="Node3D" parent="." unique_id=802548114]
+script = ExtResource("1_p2kcu")
+asteroid_scene = ExtResource("2_tnyjc")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=508510497]
+transform = Transform3D(0.92772865, -0.044604965, 0.37058067, 0.001318837, 0.9932195, 0.11624727, -0.37325317, -0.1073572, 0.9214969, 0, 0, 1.6102896)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1438352020]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1428850414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71700513, 0, -3.2814105)
+mesh = SubResource("SphereMesh_p2kcu")

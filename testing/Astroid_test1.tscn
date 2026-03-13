@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://bjqj3a7xlmdm2"]
 
+[ext_resource type="Script" uid="uid://cqrtqm6ensevk" path="res://testing/area_3d.gd" id="1_bes64"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cgm01"]
+
 [sub_resource type="SphereMesh" id="SphereMesh_cgm01"]
 
 [node name="AstroidTest1" type="Node3D" unique_id=1918341207]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2134728899]
+[node name="Area3D" type="Area3D" parent="." unique_id=989271765]
+script = ExtResource("1_bes64")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=50708148]
+shape = SubResource("SphereShape3D_cgm01")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D" unique_id=1480239192]
 mesh = SubResource("SphereMesh_cgm01")

@@ -1,0 +1,104 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main(void) {
+
+    double tax1 = 0, tax2 = 0, tax3 = 0, tax4 = 0, tax5 = 0, totaltax = 0;
+    int income;
+
+    cout << "Enter a salary: $";
+    cin >> income;
+
+    // Minimum wage yearly check
+    if (income < 15080) {
+        cout << "This is less than minimum wage for a yearly salary." << endl;
+        return 0;
+    }
+
+    // ---- Income Tax Brackets (2022 single filer) ----
+    if (income <= 10275) {
+        tax1 = income * 0.10;
+        totaltax = tax1;
+    }
+    else if (income <= 41775) {
+        tax1 = 10275 * 0.10;
+        tax2 = (income - 10275) * 0.12;
+        totaltax = tax1 + tax2;
+    }
+    else if (income <= 89075) {  // 22% bracket
+        tax1 = 10275 * 0.10;
+        tax2 = (41775 - 10275) * 0.12;
+        tax3 = (income - 41775) * 0.22;
+        totaltax = tax1 + tax2 + tax3;
+    }
+    else if (income <= 170050) { // 24% bracket
+        tax1 = 10275 * 0.10;
+        tax2 = (41775 - 10275) * 0.12;
+        tax3 = (89075 - 41775) * 0.22;
+        tax4 = (income - 89075) * 0.24;
+        totaltax = tax1 + tax2 + tax3 + tax4;
+    }
+    else if (income <= 215950) { // 32% bracket
+        tax1 = 10275 * 0.10;
+        tax2 = (41775 - 10275) * 0.12;
+        tax3 = (89075 - 41775) * 0.22;
+        tax4 = (170050 - 89075) * 0.24;
+        tax5 = (income - 170050) * 0.32;
+        totaltax = tax1 + tax2 + tax3 + tax4 + tax5;
+    }
+    else if (income <= 539900) { // 35% bracket
+        tax1 = 10275 * 0.10;
+        tax2 = (41775 - 10275) * 0.12;
+        tax3 = (89075 - 41775) * 0.22;
+        tax4 = (170050 - 89075) * 0.24;
+        tax5 = (215950 - 170050) * 0.32;
+        double tax6 = (income - 215950) * 0.35;
+        totaltax = tax1 + tax2 + tax3 + tax4 + tax5 + tax6;
+    }
+    else { // 37% bracket
+        tax1 = 10275 * 0.10;
+        tax2 = (41775 - 10275) * 0.12;
+        tax3 = (89075 - 41775) * 0.22;
+        tax4 = (170050 - 89075) * 0.24;
+        tax5 = (215950 - 170050) * 0.32;
+        double tax6 = (539900 - 215950) * 0.35;
+        double tax7 = (income - 539900) * 0.37;
+        totaltax = tax1 + tax2 + tax3 + tax4 + tax5 + tax6 + tax7;
+    }
+
+    // Social Security & Medicare
+    double sstax = income * 0.062;
+    double medtax = income * 0.0145;
+
+    // Take home
+    double takehome = income - (sstax + medtax + totaltax);
+    double monthly = takehome / 12.0;
+
+    // ---- OUTPUT ----
+    cout << setfill('-') << setw(35) << "" << endl;
+    cout << setfill(' ');
+
+    cout << left << setw(25) << "Yearly Salary:"
+         << right << setw(9) << fixed << setprecision(2) << income << endl;
+
+    cout << left << setw(25) << "Social Security Tax:"
+         << right << setw(9) << fixed << setprecision(2) << sstax << endl;
+
+    cout << left << setw(25) << "Medicare Tax:"
+         << right << setw(9) << fixed << setprecision(2) << medtax << endl;
+
+    cout << left << setw(25) << "Income Tax:"
+         << right << setw(9) << fixed << setprecision(2) << totaltax << endl;
+
+    cout << setfill('-') << setw(35) << "" << endl;
+    cout << setfill(' ');
+
+    cout << left << setw(25) << "Take Home Salary:"
+         << right << setw(9) << fixed << setprecision(2) << takehome << endl;
+
+    cout << left << setw(25) << "Monthly Take Home Pay:"
+         << right << setw(9) << fixed << setprecision(2) << monthly << endl;
+
+    return 0;
+}

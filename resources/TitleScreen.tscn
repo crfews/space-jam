@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://7augjjpw2vg6"]
+
+[ext_resource type="Texture2D" uid="uid://nfq7mxukyood" path="res://resources/gray_logo.png" id="1_h7ip6"]
+[ext_resource type="Texture2D" uid="uid://gcl3s7ldc102" path="res://resources/gray_continue.png" id="2_va0nb"]
+[ext_resource type="Texture2D" uid="uid://baut6pc4hgm2e" path="res://resources/gray_new_game.png" id="3_6lxtq"]
+[ext_resource type="Texture2D" uid="uid://d1451yj0abepo" path="res://resources/gray_quit.png" id="4_6g3d0"]
+[ext_resource type="Texture2D" uid="uid://dqm2ccwox3tgd" path="res://resources/gray_credits.png" id="5_4xkl8"]
+[ext_resource type="Texture2D" uid="uid://f1fdyhsfoobo" path="res://resources/gray_moon.png" id="6_q5k6y"]
+
+[node name="Control" type="Control" unique_id=1841516237]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="MarginContainer" parent="." unique_id=1643858647]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu" unique_id=1443890281]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/HBoxContainer" unique_id=772985755]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="MainMenu/HBoxContainer/VBoxContainer" unique_id=1487460961]
+layout_mode = 2
+texture = ExtResource("1_h7ip6")
+expand_mode = 5
+
+[node name="Continue" type="TextureRect" parent="MainMenu/HBoxContainer/VBoxContainer" unique_id=196795100]
+layout_mode = 2
+texture = ExtResource("2_va0nb")
+
+[node name="NewGame" type="TextureRect" parent="MainMenu/HBoxContainer/VBoxContainer" unique_id=572319093]
+layout_mode = 2
+texture = ExtResource("3_6lxtq")
+
+[node name="Quit" type="TextureRect" parent="MainMenu/HBoxContainer/VBoxContainer" unique_id=657731867]
+layout_mode = 2
+texture = ExtResource("4_6g3d0")
+
+[node name="Credits" type="TextureRect" parent="MainMenu/HBoxContainer/VBoxContainer" unique_id=1881531661]
+layout_mode = 2
+texture = ExtResource("5_4xkl8")
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/HBoxContainer" unique_id=1117265478]
+layout_mode = 2
+
+[node name="Moon" type="TextureRect" parent="MainMenu/HBoxContainer/CenterContainer" unique_id=827737325]
+layout_mode = 2
+texture = ExtResource("6_q5k6y")

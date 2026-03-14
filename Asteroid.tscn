@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d0a3h8hvl5tfp"]
+
+[ext_resource type="Script" uid="uid://dk8k51enl8jou" path="res://asteroid_gen.gd" id="1_l7pm1"]
+[ext_resource type="Shader" uid="uid://by6dsm87td61r" path="res://asteroid_shader.gdshader" id="1_n00aa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3jv40"]
+render_priority = 0
+shader = ExtResource("1_n00aa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=492278837]
+material_override = SubResource("ShaderMaterial_3jv40")
+script = ExtResource("1_l7pm1")
+sphere_radius = 2.0

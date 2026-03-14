@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bqpgdvrlpwji0"]
+
+[ext_resource type="Script" uid="uid://dm064ra6ettbj" path="res://generate_asteroid_field.gd" id="1_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://d0a3h8hvl5tfp" path="res://Asteroid.tscn" id="2_r3fl7"]
+[ext_resource type="Script" uid="uid://dmndsgjg5hoot" path="res://player_movement.gd" id="3_a0tk4"]
+
+[sub_resource type="Environment" id="Environment_r3fl7"]
+fog_enabled = true
+fog_light_color = Color(0.011961239, 0.014499626, 0.019027973, 1)
+fog_density = 0.05
+volumetric_fog_density = 2.91
+
+[node name="Node3D" type="Node3D" unique_id=802053840 node_paths=PackedStringArray("player")]
+script = ExtResource("1_a0tk4")
+asteroid_scene = ExtResource("2_r3fl7")
+player = NodePath("Player")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1434457427]
+environment = SubResource("Environment_r3fl7")
+
+[node name="Player" type="Node3D" parent="." unique_id=593258913]
+script = ExtResource("3_a0tk4")
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=530715062]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 50, 0)

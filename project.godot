@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="space-jam"
-run/main_scene="uid://bqpgdvrlpwji0"
+config/name="space-jam (Copy)"
+run/main_scene="uid://dtposlq6nmj7t"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[gui]
+
+theme/custom_font="uid://vya642kj53dm"
 
 [input]
 
@@ -42,6 +46,11 @@ move_right={
 ]
 }
 
+[maaacks_credits_scene]
+
+disable_update_check=false
+disable_install_wizard=true
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -49,3 +58,9 @@ move_right={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.023529412, 0.12156863, 0.2901961, 1)
+
+[xr]
+
+openxr/defaults/default_environment=""
+openxr/custom_font=""

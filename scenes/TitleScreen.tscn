@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://7augjjpw2vg6"]
+
+[ext_resource type="Texture2D" uid="uid://bo7vg42w6nr40" path="res://resources/gray_moon_500.png" id="1_qyuap"]
+
+[node name="TitleScreen" type="Control" unique_id=1841516237]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="MarginContainer" parent="." unique_id=1643858647]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu" unique_id=1443890281]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu/HBoxContainer" unique_id=635390643]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/HBoxContainer/PanelContainer" unique_id=772985755]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label" type="Label" parent="MainMenu/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1168904116]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "STARDROP"
+
+[node name="play" type="Button" parent="MainMenu/HBoxContainer/PanelContainer/VBoxContainer" unique_id=836926207]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="quit" type="Button" parent="MainMenu/HBoxContainer/PanelContainer/VBoxContainer" unique_id=638118134]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[node name="CenterContainer2" type="CenterContainer" parent="MainMenu/HBoxContainer" unique_id=732690645]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/HBoxContainer" unique_id=1117265478]
+layout_mode = 2
+
+[node name="Moon" type="TextureRect" parent="MainMenu/HBoxContainer/CenterContainer" unique_id=827737325]
+layout_mode = 2
+texture = ExtResource("1_qyuap")

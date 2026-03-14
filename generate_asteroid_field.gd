@@ -1,7 +1,6 @@
 extends Node3D
 
 @export var asteroid_scene: PackedScene
-@export var player : Node3D
 @export var num_asteroids := 500
 @export var field_radius := 100.0
 @export var asteroid_speed := 30.0
@@ -39,8 +38,6 @@ func _process(delta: float) -> void:
 		var back_y := get_backmost_y()
 
 		front_slice.position.y = back_y - layer_spacing
-		front_slice.position.x = player.position.x  # Keep slices centered on player
-		front_slice.position.z = player.position.z
 		randomize_slice(front_slice)
 
 		_rendered_slices.append(front_slice)

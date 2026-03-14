@@ -1,25 +1,23 @@
 [gd_scene format=3 uid="uid://bqpgdvrlpwji0"]
 
 [ext_resource type="Script" uid="uid://dm064ra6ettbj" path="res://generate_asteroid_field.gd" id="1_a0tk4"]
+[ext_resource type="Shader" uid="uid://by6dsm87td61r" path="res://asteroid_shader.gdshader" id="1_a202f"]
+[ext_resource type="Script" uid="uid://dk8k51enl8jou" path="res://asteroid_gen.gd" id="2_noarx"]
 [ext_resource type="PackedScene" uid="uid://d0a3h8hvl5tfp" path="res://Asteroid.tscn" id="2_r3fl7"]
-[ext_resource type="Script" uid="uid://dmndsgjg5hoot" path="res://player_movement.gd" id="3_a0tk4"]
 
-[sub_resource type="Environment" id="Environment_r3fl7"]
-fog_enabled = true
-fog_light_color = Color(0.011961239, 0.014499626, 0.019027973, 1)
-fog_density = 0.05
-volumetric_fog_density = 2.91
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a202f"]
+render_priority = 0
+shader = ExtResource("1_a202f")
 
-[node name="Node3D" type="Node3D" unique_id=802053840 node_paths=PackedStringArray("player")]
+[node name="Node3D" type="Node3D" unique_id=802053840]
 script = ExtResource("1_a0tk4")
 asteroid_scene = ExtResource("2_r3fl7")
-player = NodePath("Player")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1434457427]
-environment = SubResource("Environment_r3fl7")
-
-[node name="Player" type="Node3D" parent="." unique_id=593258913]
-script = ExtResource("3_a0tk4")
-
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=530715062]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=530715062]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 50, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1100493680]
+material_override = SubResource("ShaderMaterial_a202f")
+script = ExtResource("2_noarx")
+sphere_radius = 0.7
+noise_strength = 0.2

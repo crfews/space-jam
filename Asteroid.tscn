@@ -10,3 +10,4 @@ shader = ExtResource("1_n00aa")
 [node name="MeshInstance3D" type="MeshInstance3D" unique_id=492278837]
 material_override = SubResource("ShaderMaterial_3jv40")
 script = ExtResource("1_l7pm1")
+sphere_radius = 2.0

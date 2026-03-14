@@ -31,12 +31,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 120
 text = "STARDROP"
 
+<<<<<<< Updated upstream
 [node name="play" type="Button" parent="MainMenu/HBoxContainer/PanelContainer/VBoxContainer" unique_id=836926207]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Play"
 
 [node name="credits" type="Button" parent="MainMenu/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1666736949]
+=======
+[node name="NewGame" type="TextureRect" parent="MainMenu/HBoxContainer/VBoxContainer" unique_id=572319093]
+>>>>>>> Stashed changes
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Credits"
@@ -46,8 +50,17 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 
+<<<<<<< Updated upstream
 [node name="CenterContainer2" type="CenterContainer" parent="MainMenu/HBoxContainer" unique_id=732690645]
+=======
+[node name="Credits" type="TextureRect" parent="MainMenu/HBoxContainer/VBoxContainer" unique_id=1881531661]
+visible = false
+>>>>>>> Stashed changes
 layout_mode = 2
+
+[node name="Button" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer" unique_id=1883018320]
+layout_mode = 2
+icon = ExtResource("2_va0nb")
 
 [node name="CenterContainer" type="CenterContainer" parent="MainMenu/HBoxContainer" unique_id=1117265478]
 layout_mode = 2

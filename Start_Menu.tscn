@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bkg6urkrthnrl"]
+
+[ext_resource type="Texture2D" uid="uid://gcl3s7ldc102" path="res://resources/gray_continue.png" id="1_wrxjg"]
+
+[node name="StartMenu" type="Control" unique_id=594053701]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=540782470]
+layout_mode = 0
+offset_right = 4812.0
+offset_bottom = 1760.0
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1863472581]
+
+[node name="Button" type="Button" parent="Node2D" unique_id=1926653234]
+offset_right = 149.0
+offset_bottom = 49.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1306962804]
+position = Vector2(70, 25)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_wrxjg")

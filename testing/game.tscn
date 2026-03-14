@@ -6,7 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://d0oirpgsrbk38" path="res://Merged_Astroid.tscn" id="4_bqwuw"]
 [ext_resource type="PackedScene" uid="uid://jn8fclqruu7o" path="res://scenes/pause_menu.tscn" id="4_gfiaf"]
 [ext_resource type="Script" uid="uid://ddsnkhhltc4yl" path="res://testing/scripts/game_over_menu.gd" id="5_2jpv7"]
+<<<<<<< Updated upstream
 [ext_resource type="Shader" uid="uid://by6dsm87td61r" path="res://asteroid_shader.gdshader" id="5_ori08"]
+=======
+[ext_resource type="AudioStream" uid="uid://dyjovsakx6wrs" path="res://testing/yoshistudios_8bit_retro_game_loop.mp3" id="7_ori08"]
+>>>>>>> Stashed changes
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p2kcu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -25,8 +29,8 @@ fog_density = 0.07
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gfiaf"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2jpv7"]
-points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
+[sub_resource type="SphereShape3D" id="SphereShape3D_bqwuw"]
+radius = 1.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5sk1l"]
 render_priority = 0
@@ -48,10 +52,11 @@ script = ExtResource("3_tnyjc")
 mesh = SubResource("CapsuleMesh_gfiaf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=1949813191]
-shape = SubResource("ConvexPolygonShape3D_2jpv7")
+shape = SubResource("SphereShape3D_bqwuw")
 
 [node name="Node3D" type="Node3D" parent="player" unique_id=2136666365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6683705, 0.31634343)
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="player/Node3D" unique_id=716734606]
 transform = Transform3D(1, 0, 0, 0, 0.3001398, 0.9538952, 0, -0.9538952, 0.3001398, 0, 0, 0)
@@ -100,6 +105,7 @@ offset_right = 332.0
 offset_bottom = 177.0
 text = "Quit"
 
+<<<<<<< Updated upstream
 [node name="Label" type="Label" parent="CanvasLayer/GameOverMenu" unique_id=239702424]
 layout_mode = 0
 offset_left = 258.0
@@ -107,10 +113,35 @@ offset_top = 63.0
 offset_right = 342.0
 offset_bottom = 86.0
 text = "Game over"
+=======
+[node name="finalscore" type="Label" parent="CanvasLayer/GameOverMenu" unique_id=904113929]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 426.0
+offset_right = 624.0
+offset_bottom = 467.0
+text = "
+"
+
+[node name="ScoreBackground" type="ColorRect" parent="CanvasLayer/GameOverMenu" unique_id=1957507017]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 419.0
+offset_right = 679.0
+offset_bottom = 490.0
+color = Color(0, 0.011764706, 0.011764706, 0.4)
+>>>>>>> Stashed changes
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1395104572]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=56506262]
+process_mode = 3
+stream = ExtResource("7_ori08")
+volume_db = 5.0
+autoplay = true
 
 [connection signal="timeout" from="Gamemanager/Timer" to="Gamemanager" method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/GameOverMenu/Playagain_button" to="Gamemanager" method="_on_playagain_button_pressed"]

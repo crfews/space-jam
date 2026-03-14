@@ -2,11 +2,8 @@ extends Node3D
 
 @onready var score_display = $"../CanvasLayer/ScoreLabel"
 @onready var game_over_menu = $"../CanvasLayer/GameOverMenu"
-<<<<<<< Updated upstream
-=======
 @onready var final_score_label = $"../CanvasLayer/GameOverMenu/finalscore"
 
->>>>>>> Stashed changes
 var score: int = 0
 var is_game_over: bool = false
 

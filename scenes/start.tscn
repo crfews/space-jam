@@ -9,7 +9,6 @@ script = ExtResource("1_u80x2")
 [node name="TitleScreen" parent="." unique_id=1841516237 instance=ExtResource("2_bodal")]
 
 [connection signal="pressed" from="TitleScreen/MainMenu/HBoxContainer/PanelContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="TitleScreen/MainMenu/HBoxContainer/PanelContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="TitleScreen/MainMenu/HBoxContainer/PanelContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 
 [editable path="TitleScreen"]

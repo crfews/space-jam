@@ -34,4 +34,9 @@ esc={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-environment/defaults/default_clear_color=Color(0.19607843, 0.22745098, 0.27058825, 1)
+environment/defaults/default_clear_color=Color(0.023529412, 0.12156863, 0.2901961, 1)
+
+[xr]
+
+openxr/defaults/default_environment=""
+openxr/custom_font=""

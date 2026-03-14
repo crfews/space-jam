@@ -8,7 +8,10 @@ extends Node3D
 @export var n_layers := 5
 @export var layer_spacing := 20.0
 @export var remove_y := 50.0
+@export var GameManager : Node3D
+@export var wireframe_shader : ShaderMaterial
 
+var score := 0
 var _rendered_slices: Array[Node3D] = []
 
 func _ready() -> void:
@@ -21,8 +24,25 @@ func _ready() -> void:
 		add_child(slice)
 		_rendered_slices.append(slice)
 
+func set_asteroid_color(color: Color) -> void:
+	var mat := wireframe_shader as ShaderMaterial
+	if mat:
+		mat.set_shader_parameter("asteroid_color", color)
 
 func _process(delta: float) -> void:
+
+	# Get timer from GameManager
+	score = GameManager.score # Assuming timer has a time_left property
+	if score > 60:
+		asteroid_speed = score * 1.5
+		set_asteroid_color(Color(1.0, 0.0, 0.0)) # Red
+	elif score > 40:
+		asteroid_speed = 90.0
+		set_asteroid_color(Color(1.0, 0.5, 0.0)) # Orange
+	elif score > 20:
+		asteroid_speed = 70.0
+		set_asteroid_color(Color(1.0, 1.0, 0.0)) # Yellow
+
 	# Move whole slices, not individual asteroids
 	for slice in _rendered_slices:
 		slice.position.y += asteroid_speed * delta
@@ -50,7 +70,11 @@ func create_slice() -> Node3D:
 	var slice := Node3D.new()
 
 	for i in range(num_asteroids):
-		var asteroid := asteroid_scene.instantiate() as Node3D
+		var asteroid := asteroid_scene.instantiate() as Area3D
+		var mesh := asteroid.get_node("MeshInstance3D") as MeshInstance3D
+		if mesh:
+			mesh.material_override = wireframe_shader
+
 		slice.add_child(asteroid)
 
 	randomize_slice(slice)
@@ -85,4 +109,3 @@ func get_backmost_y() -> float:
 			min_y = slice.position.y
 
 	return min_y
-

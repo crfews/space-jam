@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0oirpgsrbk38" path="res://Merged_Astroid.tscn" id="4_bqwuw"]
 [ext_resource type="PackedScene" uid="uid://jn8fclqruu7o" path="res://scenes/pause_menu.tscn" id="4_gfiaf"]
 [ext_resource type="Script" uid="uid://ddsnkhhltc4yl" path="res://testing/scripts/game_over_menu.gd" id="5_2jpv7"]
+[ext_resource type="Shader" uid="uid://by6dsm87td61r" path="res://asteroid_shader.gdshader" id="5_ori08"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p2kcu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -26,6 +27,11 @@ fog_density = 0.07
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2jpv7"]
 points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5sk1l"]
+render_priority = 0
+shader = ExtResource("5_ori08")
+shader_parameter/asteroid_color = Color(1, 1, 1, 1)
 
 [node name="Game" type="Node3D" unique_id=823825901]
 
@@ -57,10 +63,12 @@ script = ExtResource("2_bqwuw")
 [node name="Timer" type="Timer" parent="Gamemanager" unique_id=279442722]
 autostart = true
 
-[node name="Astroidmanager" type="Node3D" parent="." unique_id=802548114 node_paths=PackedStringArray("player")]
+[node name="Astroidmanager" type="Node3D" parent="." unique_id=802548114 node_paths=PackedStringArray("player", "GameManager")]
 script = ExtResource("1_p2kcu")
 asteroid_scene = ExtResource("4_bqwuw")
 player = NodePath("../player")
+GameManager = NodePath("../Gamemanager")
+wireframe_shader = SubResource("ShaderMaterial_5sk1l")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1882802782]
 
@@ -74,36 +82,36 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_2jpv7")
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/GameOverMenu" unique_id=1187721308]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/GameOverMenu/CenterContainer" unique_id=1102371439]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer" unique_id=1840929934]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer/VBoxContainer" unique_id=239702424]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Game over"
-
-[node name="Playagain_button" type="Button" parent="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer/VBoxContainer" unique_id=50303518]
+[node name="Playagain_button" type="Button" parent="CanvasLayer/GameOverMenu" unique_id=50303518]
 process_mode = 2
-layout_mode = 2
+layout_mode = 0
+offset_left = 271.0
+offset_top = 236.0
+offset_right = 358.0
+offset_bottom = 267.0
 text = "Play again"
 
-[node name="Quit_button" type="Button" parent="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer/VBoxContainer" unique_id=1820164877]
+[node name="Quit_button" type="Button" parent="CanvasLayer/GameOverMenu" unique_id=1820164877]
 process_mode = 2
-layout_mode = 2
+layout_mode = 0
+offset_left = 290.0
+offset_top = 146.0
+offset_right = 332.0
+offset_bottom = 177.0
 text = "Quit"
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOverMenu" unique_id=239702424]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 63.0
+offset_right = 342.0
+offset_bottom = 86.0
+text = "Game over"
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1395104572]
 offset_right = 40.0
 offset_bottom = 23.0
 
 [connection signal="timeout" from="Gamemanager/Timer" to="Gamemanager" method="_on_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer/VBoxContainer/Playagain_button" to="Gamemanager" method="_on_playagain_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer/VBoxContainer/Quit_button" to="Gamemanager" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverMenu/Playagain_button" to="Gamemanager" method="_on_playagain_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverMenu/Quit_button" to="Gamemanager" method="_on_quit_button_pressed"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="space-jam (Copy)"
-run/main_scene="uid://crkqi0ugl3rf6"
+run/main_scene="uid://dtposlq6nmj7t"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dtposlq6nmj7t"]
+
+[ext_resource type="Script" uid="uid://ckuvt6lh4jlna" path="res://start.gd" id="1_u80x2"]
+[ext_resource type="PackedScene" uid="uid://7augjjpw2vg6" path="res://scenes/TitleScreen.tscn" id="2_bodal"]
+
+[node name="Start" type="Node2D" unique_id=877661178]
+script = ExtResource("1_u80x2")
+
+[node name="TitleScreen" parent="." unique_id=1841516237 instance=ExtResource("2_bodal")]
+
+[connection signal="pressed" from="TitleScreen/MainMenu/HBoxContainer/PanelContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="TitleScreen/MainMenu/HBoxContainer/PanelContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="TitleScreen/MainMenu/HBoxContainer/PanelContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+
+[editable path="TitleScreen"]

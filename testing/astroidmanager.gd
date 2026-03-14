@@ -85,4 +85,3 @@ func get_backmost_y() -> float:
 			min_y = slice.position.y
 
 	return min_y
-

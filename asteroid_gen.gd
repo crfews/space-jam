@@ -1,10 +1,12 @@
 extends MeshInstance3D
 
-@export var sphere_radius := 1.0
-@export var noise_strength := 2.0
+@export var sphere_radius := 2.0
+@export var noise_strength := 1.8
 @export var noise_scale := 2.0
-@export var sphere_radial_segments := 6
-@export var sphere_rings := 6
+@export var sphere_radial_segments := 5
+@export var sphere_rings := 5
+
+var noise := FastNoiseLite.new()
 
 func _ready():
 	mesh = generate_asteroid()
@@ -20,7 +22,6 @@ func generate_asteroid() -> ArrayMesh:
 	var arrays: Array = sphere.get_mesh_arrays()
 	var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 
-	var noise := FastNoiseLite.new()
 	noise.seed = randi()
 	noise.frequency = 1.0
 

@@ -18,7 +18,9 @@ sky_material = SubResource("ProceduralSkyMaterial_p2kcu")
 background_mode = 2
 sky = SubResource("Sky_tnyjc")
 tonemap_mode = 2
-glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.026960079, 0.0350436, 0.044217333, 1)
+fog_density = 0.07
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gfiaf"]
 
@@ -33,6 +35,7 @@ environment = SubResource("Environment_gfiaf")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1438352020]
 
 [node name="player" type="CharacterBody3D" parent="." unique_id=714628127 groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
 script = ExtResource("3_tnyjc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=175638941]
@@ -46,6 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6683705, 0.31634343)
 
 [node name="Camera3D" type="Camera3D" parent="player/Node3D" unique_id=716734606]
 transform = Transform3D(1, 0, 0, 0, 0.3001398, 0.9538952, 0, -0.9538952, 0.3001398, 0, 0, 0)
+fov = 110.0
 
 [node name="Gamemanager" type="Node3D" parent="." unique_id=2077919727 groups=["game_manager"]]
 script = ExtResource("2_bqwuw")

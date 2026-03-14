@@ -7,5 +7,5 @@ void vertex() {
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	ALBEDO = vec3(1.0, 0.5, 0.0); // Set the color of the asteroid to orange.
+	ALBEDO = vec3(1.0, 1.0, 1.0); // Set the color of the asteroid to white.
 }

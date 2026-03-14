@@ -7,9 +7,10 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _process(delta: float) -> void:
-	rotate_x(rotation_speed.x * delta)
-	rotate_y(rotation_speed.y * delta)
-	rotate_z(rotation_speed.z * delta)
+	# rotate_x(rotation_speed.x * delta)
+	# rotate_y(rotation_speed.y * delta)
+	# rotate_z(rotation_speed.z * delta)
+	pass
 
 func _on_body_entered(body: Node) -> void:
 	print("Entered by:", body.name)

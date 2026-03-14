@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dkdymojd6p3l1"]
+
+[ext_resource type="Script" uid="uid://ddsnkhhltc4yl" path="res://testing/scripts/game_over_menu.gd" id="1_2mt5c"]
+
+[node name="GameOverMenu" type="Control" unique_id=2090029735]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2mt5c")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=756109670]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=844406210]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1128195393]
+layout_mode = 2
+
+[node name="GameOver_Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=31776524]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Game over"
+horizontal_alignment = 1
+
+[node name="Playagain_button" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1828886462]
+process_mode = 2
+layout_mode = 2
+text = "Play again"
+
+[node name="Quit_button" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=838564655]
+process_mode = 2
+layout_mode = 2
+text = "Quit"

@@ -1,5 +1,8 @@
 extends Control
 
+@onready var game_over_menu = $"../CanvasLayer/GameOverMenu"
+var is_game_over: bool = false
+
 func resume():
 	get_tree().paused = false
 	hide()
@@ -40,3 +43,11 @@ func _on_restart_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+func game_over() -> void:
+	if is_game_over:
+		return
+
+	is_game_over = true
+	game_over_menu.visible = true
+	get_tree().paused = true

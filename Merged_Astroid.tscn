@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d0oirpgsrbk38"]
+
+[ext_resource type="Script" uid="uid://8co6wgws0ld1" path="res://testing/scripts/merged_astroid.gd" id="1_x5i8d"]
+[ext_resource type="Shader" uid="uid://by6dsm87td61r" path="res://asteroid_shader.gdshader" id="2_hjr2l"]
+[ext_resource type="Script" uid="uid://c14duj1d4klxu" path="res://testing/scripts/mesh_instance_3d.gd" id="3_y5yvr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cq26i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pkid4"]
+render_priority = 0
+shader = ExtResource("2_hjr2l")
+
+[node name="Merged_Astroid" type="Area3D" unique_id=854332268]
+script = ExtResource("1_x5i8d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=451349619]
+shape = SubResource("SphereShape3D_cq26i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2137253823]
+material_override = SubResource("ShaderMaterial_pkid4")
+script = ExtResource("3_y5yvr")

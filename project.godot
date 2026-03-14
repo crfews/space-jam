@@ -10,14 +10,10 @@ config_version=5
 
 [application]
 
-config/name="space-jam"
+config/name="space-jam (Copy)"
 run/main_scene="uid://crkqi0ugl3rf6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
-
-[gui]
-
-theme/custom_font="uid://vya642kj53dm"
 
 [input]
 

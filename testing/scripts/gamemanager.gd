@@ -2,12 +2,12 @@ extends Node3D
 
 @onready var score_display = $"../CanvasLayer/ScoreLabel"
 @onready var game_over_menu = $"../CanvasLayer/GameOverMenu"
-
 var score: int = 0
 var is_game_over: bool = false
 
 func _ready() -> void:
 	print("GameManager ready")
+	
 	score_display.text = "Score: 0"
 	game_over_menu.hide()
 

@@ -70,36 +70,36 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_2jpv7")
 
-[node name="Playagain_button" type="Button" parent="CanvasLayer/GameOverMenu" unique_id=50303518]
-process_mode = 2
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/GameOverMenu" unique_id=1187721308]
 layout_mode = 0
-offset_left = 271.0
-offset_top = 236.0
-offset_right = 358.0
-offset_bottom = 267.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/GameOverMenu/CenterContainer" unique_id=1102371439]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer" unique_id=1840929934]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer/VBoxContainer" unique_id=239702424]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Game over"
+
+[node name="Playagain_button" type="Button" parent="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer/VBoxContainer" unique_id=50303518]
+process_mode = 2
+layout_mode = 2
 text = "Play again"
 
-[node name="Quit_button" type="Button" parent="CanvasLayer/GameOverMenu" unique_id=1820164877]
+[node name="Quit_button" type="Button" parent="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer/VBoxContainer" unique_id=1820164877]
 process_mode = 2
-layout_mode = 0
-offset_left = 290.0
-offset_top = 146.0
-offset_right = 332.0
-offset_bottom = 177.0
+layout_mode = 2
 text = "Quit"
-
-[node name="Label" type="Label" parent="CanvasLayer/GameOverMenu" unique_id=239702424]
-layout_mode = 0
-offset_left = 258.0
-offset_top = 63.0
-offset_right = 342.0
-offset_bottom = 86.0
-text = "Game over"
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1395104572]
 offset_right = 40.0
 offset_bottom = 23.0
 
 [connection signal="timeout" from="Gamemanager/Timer" to="Gamemanager" method="_on_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/GameOverMenu/Playagain_button" to="Gamemanager" method="_on_playagain_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/GameOverMenu/Quit_button" to="Gamemanager" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer/VBoxContainer/Playagain_button" to="Gamemanager" method="_on_playagain_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverMenu/CenterContainer/PanelContainer/VBoxContainer/Quit_button" to="Gamemanager" method="_on_quit_button_pressed"]

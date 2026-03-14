@@ -5,3 +5,6 @@
 - https://www.youtube.com/watch?v=e9-WQg1yMCY pause menu tutorial by KobeDev
 - https://github.com/maseyyi/font-courier-new courier new font ttf
 - https://github.com/benbishopnz/godot-credits Ben Bishop godot credits
+- Ai was used to assist in world gen and collison detection but was tweaked as needed.
+- link to repo for source code: https://github.com/crfews/space-jam.git
+  
